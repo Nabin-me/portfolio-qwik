@@ -54,6 +54,7 @@ const createImageBody = (x: number, y: number, imageUrl: string): Body => {
 export const PlayCanvas = component$(() => {
   const containerRef = useSignal<HTMLDivElement>();
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     if (!containerRef.value) return;
 
@@ -170,8 +171,14 @@ export const PlayCanvas = component$(() => {
       }
     };
 
-    const shapesStack = Composites.stack(0, 100, 10, 10, 20, 10, (x, y) =>
-      createRandomShape(x, y),
+    const shapesStack = Composites.stack(
+      0,
+      100,
+      10,
+      10,
+      20,
+      10,
+      (x: number, y: number) => createRandomShape(x, y),
     );
 
     // Create bodies and add them to the world
