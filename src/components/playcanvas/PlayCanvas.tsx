@@ -5,7 +5,6 @@ import Matter, {
   Runner,
   Composites,
   Bodies,
-  World,
   MouseConstraint,
   Mouse,
   Composite,
@@ -34,7 +33,6 @@ const calculateBoxWidth = (text: string): number => {
 // Function to create an image body
 const createImageBody = (x: number, y: number, imageUrl: string): Body => {
   const width = 70; // Image width
-  const height = 100; // Image height
 
   const body = Bodies.circle(x, y, width, {
     restitution: 0.1,
